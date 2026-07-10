@@ -1,0 +1,18 @@
+{
+  "name": "rolldown-commonjs-cycle-repro",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "gen": "node gen.mjs",
+    "build": "node gen.mjs && vite build",
+    "repro": "node gen.mjs && vite build && node run.mjs"
+  },
+  "devDependencies": {
+    "@babel/core": "^8.0.1",
+    "@babel/preset-env": "^8.0.2",
+    "babel-plugin-polyfill-corejs3": "^1.0.0",
+    "core-js": "^3.49.0",
+    "rolldown": "1.1.5",
+    "vite": "^8.1.4"
+  }
+}
