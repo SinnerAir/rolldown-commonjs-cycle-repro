@@ -20,7 +20,7 @@ automatic code splitting.
 
 ## Versions
 
-- rolldown **1.2.9** (via vite **8.3.0**), default chunking — also reproduced on 1.1.5 / vite 8.1.4, `minify: false`
+- rolldown **1.2.9** (via vite **8.3.0**), default chunking, `minify: false` (also reproduces on 1.1.5 / vite 8.1.4)
 - Trigger transform: `@babel/preset-env` 8 + `babel-plugin-polyfill-corejs3`
   (`method: 'usage-global'`, core-js 3.50) — the standard "polyfill on API usage"
   setup. The array-buffer / typed-array / uint8-array core-js families it injects
