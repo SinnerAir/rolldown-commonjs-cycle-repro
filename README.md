@@ -1,4 +1,4 @@
-# rolldown 1.1.5 — `__commonJSMin` cycle regresses via runtime chunk (default chunking)
+# rolldown 1.1.5–1.2.9 — `__commonJSMin` cycle regresses via runtime chunk (default chunking)
 
 `__commonJSMin` is hoisted into the `rolldown-runtime` chunk, which then imports
 and **top-level-calls** orphaned CommonJS side-effect modules from a shared chunk,
@@ -20,9 +20,9 @@ automatic code splitting.
 
 ## Versions
 
-- rolldown **1.1.5** (via vite **8.1.4**), default chunking, `minify: false`
+- rolldown **1.2.9** (via vite **8.3.0**), default chunking — also reproduced on 1.1.5 / vite 8.1.4, `minify: false`
 - Trigger transform: `@babel/preset-env` 8 + `babel-plugin-polyfill-corejs3`
-  (`method: 'usage-global'`, core-js 3.49) — the standard "polyfill on API usage"
+  (`method: 'usage-global'`, core-js 3.50) — the standard "polyfill on API usage"
   setup. The array-buffer / typed-array / uint8-array core-js families it injects
   are **side-effect-only with no reachable consumer** (orphans); their internal
   circular `require()`s force the lazy `__commonJSMin` wrapper.
